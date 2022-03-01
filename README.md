@@ -64,7 +64,7 @@ you can use following credentials for test api via swaggerdocs or postman collec
 
 ### with [Postman](https://www.postman.com/)
 
-you can import this [postman collection](postman/TicTacToe.postman_collection.json) to try transactions statistics API.
+you can import this [postman collection](postman/TicTacToe.postman_collection.json) to try tic tac toe API.
 
 ## How it works
 
