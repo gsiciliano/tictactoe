@@ -1,0 +1,243 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Tic Tac Toe",
+        "description": "REST Api",
+        "contact": {
+            "name": "Gianluca Siciliano",
+            "email": "gianluca.siciliano.79@gmail.com"
+        },
+        "version": "1.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/v1/games": {
+            "get": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "returns all the games",
+                "description": "returns all the games stored in database",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "Operation successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "This endpoint is called to create a new game.",
+                "description": "This endpoint is called to create a new game.",
+                "operationId": "store",
+                "responses": {
+                    "201": {
+                        "description": "Resource created",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/v1/games/{uuid}": {
+            "get": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "returns data about a game.",
+                "description": "returns all information about a given game",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "game uuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "5ba1c4e3-5305-4beb-bff1-38f7eb6f1850"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        },
+        "/v1/games/{uuid}/turns": {
+            "get": {
+                "tags": [
+                    "Turns"
+                ],
+                "summary": "returns all turns from a game UUID",
+                "description": "returns all turns from a game UUID",
+                "operationId": "index",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "game uuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "5ba1c4e3-5305-4beb-bff1-38f7eb6f1850"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operation successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Turns"
+                ],
+                "summary": "Create a new turn.",
+                "description": "Create a new turn",
+                "operationId": "store",
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "game uuid",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "5ba1c4e3-5305-4beb-bff1-38f7eb6f1850"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Turn",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/turnRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Resource created",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "turnRequest": {
+                "properties": {
+                    "player_nr": {
+                        "type": "string",
+                        "enum": [
+                            "1",
+                            "2"
+                        ]
+                    },
+                    "location": {
+                        "type": "string",
+                        "enum": [
+                            "1",
+                            "2",
+                            "3",
+                            "4",
+                            "5",
+                            "6",
+                            "7",
+                            "8",
+                            "9"
+                        ]
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "passport": {
+                "type": "oauth2",
+                "in": "header",
+                "flows": {
+                    "clientCredentials": {
+                        "tokenUrl": "/oauth/token",
+                        "scopes": {}
+                    }
+                },
+                "scheme": [
+                    "http",
+                    "https"
+                ]
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
