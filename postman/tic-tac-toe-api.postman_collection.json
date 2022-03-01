@@ -1,0 +1,557 @@
+{
+	"info": {
+		"_postman_id": "2e8c5ac7-669f-480d-855b-99b6a9f2bd26",
+		"name": "Tic-tac-toe-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "A game",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New game",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "size",
+							"value": "ABc",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "3",
+							"disabled": true
+						},
+						{
+							"key": "colums",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All games",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost/api/v1/games/",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn 1: Player 1 Location 1",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "player_nr",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn 2: Player 2 Location 3",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "player_nr",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn 3: Player 1 Location 4",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "player_nr",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn 4: Player 2 Location 5",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "player_nr",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn 5: Player 1 Location 7 and win",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "player_nr",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn 6: Player 2 Game Over",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "player_nr",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "location",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All turns",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/v1/games/5ba1c4e3-5305-4beb-bff1-38f7eb6f1850/turns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"v1",
+						"games",
+						"5ba1c4e3-5305-4beb-bff1-38f7eb6f1850",
+						"turns"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYWIyMDM2Zjk2M2NlMDk1OTNmZWQyZjZhYzI1YTM4YjBhNmZhNzBlZjZmMmJlYzI0MGI3MjdkYjE3YjMzYTdhODhiYjNmNzdhYjc0ZjZmZjEiLCJpYXQiOjE2NDYxNjI1MzguMzI5MjE0LCJuYmYiOjE2NDYxNjI1MzguMzI5MjE2LCJleHAiOjE2Nzc2OTg1MzguMzIwOTg3LCJzdWIiOiIiLCJzY29wZXMiOltdfQ.BZGk4OgKTNy3RI0ycnhQgp8f6PSBXGR0nELxbEXVtJ19849IXY8GTB0O1wQE9gwp2a2efCdaVUJN5IzuI7O4C2iPikTsFPA4GX7YJWUunj0NuBlsxbaihFQ-Nx0GWcIb7mkBiBAk2xiDJrlGZHXOd7oMFHRfQTpyl6o8pZRNv0VXU33Aoy4mHH40I-JRKUGGNDdGO7ujCiEoEmgbocjCrjny39-2BtR6OkDt_PTmTlcc9d2-0cco_UjfasAY30Ffv-U7Q_FYgeGxiPjnSNHaRvpfVYX96fWgltsimndvztYm9b5RC98-wnDd5rc0KUxnMAYrmDEiRj4ERW-dCNap2Kti_HkSlC6gb_LrN2YeqJ-yQjJpFq47bGvQ6ueU3NQYM5NayL1iFJElo1k6-y6Vxi66PeMZiCgjKSBUkEVr4PpMr44lstgVVZ8wUDjU_nfJxmrMESygwLSg1KolG4pbt364_DxSXwUA2PQsKKeOOdXPuz2S88kRo1smMG2QXORiIYx1DeD21ah3lP8CK3-cfl1yNb8I9y8t_o6WtuHopt2pGaMkFgU2wME6XeJoSE5cF8lBrr9MHpE8e8j16chNPC54Mjdh-TNLOU1NqoMZmTuYjrcryEygzZ5YQXOXz2ZT-lj29i121Iks5XS54ULylTxbToGfAclWrDzPsDRSMXk",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "0Vw967ioyYp2zozSZS3cOaivSTycOJW0SNo9KfHP",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "tic-tac-toe-token",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "1",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "http://localhost/oauth/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

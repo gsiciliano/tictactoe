@@ -4,6 +4,10 @@
 
 A RESTful API for play a tic-tac-toe game. 
 
+This respository is intended for testing only, use in production is discouraged.
+
+Here's a list of endpoint
+
 | Endpoint                 | Auth | Description                                                                          |
 | ------------------------ | ---- | ------------------------------------------------------------------------------------ |
 | **GET** api/v1/games   | yes  | Return a list of all games stored in database |
@@ -16,7 +20,7 @@ A RESTful API for play a tic-tac-toe game.
 
 In order to run this application an internet connection is required and you must install at least:
 
-- [Git](https://git-scm.com/) 
+- [Git](https://git-scm.com/)
 - [Docker engine](https://docs.docker.com/engine/install/)
 - [Docker compose](https://docs.docker.com/compose/install/)
 - [WSL](https://docs.microsoft.com/en-us/windows/wsl/setup/environment) (if you run under Windows)
@@ -64,7 +68,7 @@ you can use following credentials for test api via swaggerdocs or postman collec
 
 ### with [Postman](https://www.postman.com/)
 
-you can import this [postman collection](postman/TicTacToe.postman_collection.json) to try tic tac toe API.
+you can import this [postman collection](postman/tic-tac-toe-api.postman_collection.json) to try tic tac toe API.
 
 ## How it works
 
@@ -73,7 +77,15 @@ The Tic Tac Toe API is composed by following containers:
 - Ngingx proxy web server container
 - Php application container
 
+Location are considered as follow according to tic-tac-toe definition in [wikipedia](https://en.wikipedia.org/wiki/Tic-tac-toe) :
+
+|   |   |   |
+|---|---|---|
+| 1 | 2 | 3 |
+| 4 | 5 | 6 |
+| 7 | 8 | 9 |
+
 When a new game or turn are posted data are stored in a sqlite database.
 
-Note that no volumes for containers are created: if you stop and restart application nothing happens on database, but if you remove containers all data will be erased.
+_**Note that no volumes for containers are created: if you stop and restart application nothing happens on database, but if you remove containers all data will be erased.**_
 

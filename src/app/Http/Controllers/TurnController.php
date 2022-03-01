@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Response;
 use App\Http\Requests\TurnRequest;
+use App\Http\Services\GameService;
 use App\Http\Resources\GameResource;
+use App\Http\Resources\TurnResource;
 use App\Http\Repositories\GameRepository;
 use App\Http\Repositories\TurnRepository;
-use App\Http\Services\GameService;
 
 class TurnController extends Controller
 {
@@ -55,13 +56,13 @@ class TurnController extends Controller
     /**
      * Get all turns from a game UUID.
      *
-     * @param String uuid
+     * @param String $uuid
      * @return \Illuminate\Http\Response
      */
     public function index($uuid)
     {
         return response()->json(
-            $this->turnRepository->get($uuid), Response::HTTP_OK
+            TurnResource::collection($this->turnRepository->get($uuid)), Response::HTTP_OK
         );
     }
 
@@ -107,7 +108,7 @@ class TurnController extends Controller
     /**
      * Create a new turn.
      * @param App\Http\Requests\TurnRequest
-     * @param String uuid
+     * @param String $uuid
      * @return \Illuminate\Http\Response
      */
     public function store(TurnRequest $request, $uuid)

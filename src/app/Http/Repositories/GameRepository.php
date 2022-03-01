@@ -10,7 +10,7 @@ class GameRepository
    /**
      * Get all games.
      *
-     * @return App\Models\Game collection
+     * @return App\Models\Game
      */
     public function all()
     {
@@ -20,8 +20,8 @@ class GameRepository
    /**
      * Get a games.
      *
-     * @param String uuid
-     * @return App\Models\Game game
+     * @param String $uuid
+     * @return App\Models\Game
      */
     public function find($uuid){
 
@@ -32,7 +32,7 @@ class GameRepository
      * Create a new game.
      *
      *
-     * @return App\Models\Game game
+     * @return App\Models\Game
      */
     public function create(){
         return Game::create(
@@ -45,10 +45,10 @@ class GameRepository
    /**
      * update a game for a winner and status.
      *
-     * @param String uuid
-     * @param String winner
-     * @param String status
-     * @return App\Models\Game game
+     * @param String $uuid
+     * @param String $winner
+     * @param String $status
+     * @return App\Models\Game
      */
     public function update($uuid, $winner, $status)
     {

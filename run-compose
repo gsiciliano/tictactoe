@@ -1,0 +1,9 @@
+#!/bin/sh -e
+export GID=`id -g`
+export USERID=`id -u`
+
+command='docker-compose'
+for i in "$@"; do
+  command="$command $i"
+done
+eval "$command"

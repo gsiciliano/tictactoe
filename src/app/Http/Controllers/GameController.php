@@ -83,6 +83,7 @@ class GameController extends Controller
     /**
      * Return a game
      *
+     * @param String $uuid
      * @return \Illuminate\Http\Response
      */
     public function find($uuid)

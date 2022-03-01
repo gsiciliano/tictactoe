@@ -7,11 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class GameResource extends JsonResource
 {
-    private const HORIZONTAL = 'row';
-    private const VERTICAL = 'col';
-    private const DIAGONAL_RIGHT = 'diagL';
-    private const DIAGONAL_LEFT = 'diagL';
-
     public static $wrap = null;
 
     /**
@@ -34,7 +29,11 @@ class GameResource extends JsonResource
 
         ];
     }
-
+    /**
+     *
+     * @param Array $turns
+     * @return Array $board
+     */
     private function getGameBoard($turns)
     {
         $board = [];
