@@ -39,12 +39,11 @@ First of all you must clone this repo: `git clone https://github.com/gsiciliano/
 
 use `docker-compose up -d` to start application's containers;
 
-### Run test suite (only for local environment)
+### Run test suite 
 
-in local environment configuration you can run test suite using following command:
+you can run test suite using following command:
 
-- for run tests with explictit descriptions:
-  - `docker exec -it tic_tac_toe_app php artisan test`
+- `docker exec -it tic_tac_toe_app php artisan test`
 
 ### Production readiness
 
