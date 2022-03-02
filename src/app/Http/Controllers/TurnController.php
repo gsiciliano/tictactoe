@@ -70,6 +70,22 @@ class TurnController extends Controller
     }
 
     /**
+    *     @OA\Schema(
+    *         schema="turnRequest",
+    *         type="object",
+    *         @OA\Property(
+    *             property="player_nr",
+    *             type="string",
+    *             example = "1"
+    *         ),
+    *         @OA\Property(
+    *             property="location",
+    *              type="string",
+    *              example="1"
+    *         ),
+    *     )
+    */
+    /**
      * @OA\Post(
      *     path="/v1/games/{uuid}/turns",
      *     summary="Create a new turn.",
