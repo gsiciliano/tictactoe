@@ -10,7 +10,7 @@ class TurnRepository
      * Get all turns from a game uuid.
      *
      * @param String $uuid
-     * @return App\Models\Turn
+     * @return App\Models\Turn collection
      */
     public function get($uuid)
     {

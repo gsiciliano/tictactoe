@@ -49,6 +49,17 @@ class TurnTest extends TestCase
         $response->assertStatus(Response::HTTP_UNAUTHORIZED);
     }
 
+    public function test_post_turn_and_got_404()
+    {
+        $uuid = Str::uuid();
+        $payload = [
+            'game_id' => 1,
+            'player_nr' => 1, 'location'=> 1
+        ];
+        $response = $this->withoutMiddleware()->postJson("/api/v1/games/$uuid/turns", $payload);
+        $response->assertStatus(Response::HTTP_NOT_FOUND);
+    }
+
     public function test_post_turn_and_got_201()
     {
         $uuid = Str::uuid();

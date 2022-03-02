@@ -11,6 +11,7 @@ class ItsNotPlayerTurnRule implements Rule
     /**
      * Create a new rule instance.
      *
+     * @param App\Models\Game $game
      * @return void
      */
     public function __construct(Game $game)

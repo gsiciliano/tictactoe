@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Requests\TurnRequest;
 use App\Http\Services\GameService;
 use App\Http\Resources\GameResource;
 use App\Http\Resources\TurnResource;
+use App\Rules\ItsNotPlayerTurnRule;
+use App\Rules\LocationAlreadyFilledRule;
 use App\Http\Repositories\GameRepository;
 use App\Http\Repositories\TurnRepository;
+use Illuminate\Support\Facades\Validator;
 
 class TurnController extends Controller
 {
@@ -107,14 +110,30 @@ class TurnController extends Controller
      */
     /**
      * Create a new turn.
-     * @param App\Http\Requests\TurnRequest
+     * @param \Illuminate\Http\Request
      * @param String $uuid
      * @return \Illuminate\Http\Response
      */
-    public function store(TurnRequest $request, $uuid)
+    public function store(Request $request, $uuid)
     {
-        $validated = $request->validated();
-        $new_turn = $this->turnRepository->create($validated);
+        $game = $this->gameRepository->find($uuid);
+        if (!$game){
+            return response()->json([], Response::HTTP_NOT_FOUND);
+        }
+
+        $validator = Validator::make($request->all(),[
+            'location' => ['required','integer','gte:1','lte:9', new LocationAlreadyFilledRule($game)],
+            'player_nr' => ['required','integer','gte:1','lte:2', new ItsNotPlayerTurnRule($game)],
+        ]);
+
+        $validator->after(function ($validator) use ($game) {
+            if ($game->status) {
+                $validator->errors()->add('game', 'Game over!');
+            }
+        });
+        $validated = $validator->validated();
+
+        $new_turn = $this->turnRepository->create(array_merge($validated,['game_id' => $game->id]));
 
         $gameService = new GameService($new_turn->game);
         $game_winner = $gameService->getWinner();
